@@ -1,10 +1,9 @@
 package com.ocugene.repository;
 
-import com.ocugene.entity.User;
+import com.ocugene.entity.ClinicalExam;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface ClinicalExamRepository extends JpaRepository<ClinicalExam, Integer> {
 }
