@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user", schema = "registrydatabase")
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -31,4 +31,8 @@ public class User {
     @Column(name = "user_password")
     @JsonProperty("user_password")
     String userPassword;
+
+    @Column(name = "user_role")
+    @JsonProperty("user_role")
+    String userRole;
 }
