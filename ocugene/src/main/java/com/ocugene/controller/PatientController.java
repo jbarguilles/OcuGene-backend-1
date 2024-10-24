@@ -2,7 +2,7 @@ package com.ocugene.controller;
 
 import com.ocugene.entity.Patient;
 import com.ocugene.entity.requests.AddPatientRequest;
-import com.ocugene.service.PatientService;
+import com.ocugene.service.PatientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class PatientController {
 
     @Autowired
-    PatientService patientService;
+    PatientServiceImpl patientService;
 
     @PostMapping("/register")
     @ResponseBody
