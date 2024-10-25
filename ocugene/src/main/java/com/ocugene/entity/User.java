@@ -17,22 +17,14 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    @JsonProperty("user_id")
     Integer userId;
 
-    @Column(name = "user_name")
-    @JsonProperty("user_name")
-    String userName;
-
-    @Column(name = "user_email")
-    @JsonProperty("user_email")
-    String userEmail;
+    @Column(name = "username")
+    String username;
 
     @Column(name = "user_password")
-    @JsonProperty("user_password")
     String userPassword;
 
     @Column(name = "user_role")
-    @JsonProperty("user_role")
     String userRole;
 }

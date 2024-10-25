@@ -20,4 +20,10 @@ public class PatientController {
     public ResponseEntity<Patient> registerPatient (@RequestBody AddPatientRequest addPatientRequest) {
         return ResponseEntity.ok(patientService.registerPatient(addPatientRequest));
     }
+
+    @GetMapping("/getLatestID")
+    @ResponseBody
+    public ResponseEntity<Integer> getLatestPatientID(){
+        return ResponseEntity.ok(patientService.getLatestPatientNumber());
+    }
 }

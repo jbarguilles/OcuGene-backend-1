@@ -16,4 +16,9 @@ public class PatientServiceImpl implements PatientService{
         Patient patient = addPatientRequest.mapToPatient();
         return patientRepository.save(patient);
     }
+
+    public int getLatestPatientNumber(){
+        Patient latestPatient = patientRepository.findTopByOrderByPatientIDDesc();
+        return (latestPatient == null) ? 0 : latestPatient.getPatientID();
+    }
 }
