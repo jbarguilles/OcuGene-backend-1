@@ -83,4 +83,25 @@ public class Patient {
 
     @Column(name = "gen_test_date")
     private Date genTestDate;
+
+    @Column(name = "patient_code")
+    private String patientCode;
+
+    @Column(name = "right_bcva")
+    String rightBCVA;
+
+    @Column(name = "left_bcva")
+    String leftBCVA;
+
+    @Column(name = "right_retina")
+    String rightRetina;
+
+    @Column(name = "left_retina")
+    String leftRetina;
+
+    @Column(name = "right_cornea")
+    String rightCornea;
+
+    @Column(name = "left_cornea")
+    String leftCornea;
 }

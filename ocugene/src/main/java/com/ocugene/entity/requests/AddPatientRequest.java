@@ -74,6 +74,27 @@ public class AddPatientRequest {
     @JsonProperty("gen_test_date")
     private String genTestDate;
 
+    @JsonProperty("patient_code")
+    private String patientCode;
+
+    @JsonProperty("right_bcva")
+    private String rightBCVA;
+
+    @JsonProperty("left_bcva")
+    private String leftBCVA;
+
+    @JsonProperty("right_retina")
+    private String rightRetina;
+
+    @JsonProperty("left_retina")
+    private String leftRetina;
+
+    @JsonProperty("right_cornea")
+    private String rightCornea;
+
+    @JsonProperty("left_cornea")
+    private String leftCornea;
+
     public Patient mapToPatient(){
         Patient patient = new Patient();
         patient.setFirstName(this.firstName);
@@ -107,6 +128,14 @@ public class AddPatientRequest {
         patient.setErgResult(this.ergResult);
         patient.setDiagnosis(this.diagnosis);
         patient.setVariant(this.variant);
+        patient.setPatientCode(this.patientCode);
+
+        patient.setRightBCVA(this.rightBCVA);
+        patient.setLeftBCVA(this.leftBCVA);
+        patient.setRightCornea(this.rightCornea);
+        patient.setLeftCornea(this.leftCornea);
+        patient.setRightRetina(this.rightRetina);
+        patient.setLeftRetina(this.leftRetina);
 
         return patient;
     }

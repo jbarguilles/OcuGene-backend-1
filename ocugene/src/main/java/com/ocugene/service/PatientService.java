@@ -8,4 +8,5 @@ import org.springframework.stereotype.Service;
 public interface PatientService {
 
     public Patient registerPatient(AddPatientRequest addPatientRequest);
+    public int getLatestPatientNumber();
 }

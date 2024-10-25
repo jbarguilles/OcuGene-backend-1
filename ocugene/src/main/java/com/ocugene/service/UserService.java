@@ -1,15 +1,16 @@
 package com.ocugene.service;
 
 import com.ocugene.entity.User;
-import com.ocugene.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ocugene.entity.requests.AddUserRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserService {
-    @Autowired
-    UserRepository userRepository;
-    public List<User> getAllUsers() {return userRepository.findAll();}
+public interface UserService {
+
+    public List<User> getAllUsers();
+
+    public User addUser(AddUserRequest addUserRequest);
+
 }
