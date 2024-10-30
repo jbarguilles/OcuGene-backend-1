@@ -4,6 +4,7 @@ import com.ocugene.entity.Patient;
 import com.ocugene.entity.projection.RegionCount;
 import com.ocugene.entity.projection.VariantCount;
 import com.ocugene.entity.requests.AddPatientRequest;
+import com.ocugene.service.PatientService;
 import com.ocugene.service.PatientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ import java.util.List;
 public class PatientController {
 
     @Autowired
-    PatientServiceImpl patientService;
+    PatientService patientService;
 
     @PostMapping("/register")
     @ResponseBody
