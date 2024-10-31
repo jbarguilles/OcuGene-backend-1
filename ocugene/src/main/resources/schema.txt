@@ -27,7 +27,7 @@ CREATE TABLE registrydatabase.patient(
 	family_member	TEXT,
 	sibling_count	INT		NOT NULL,
 	erg_date 		DATE	NOT NULL,
-	erc_result		TEXT 	NOT NULL,
+	erg_result		TEXT 	NOT NULL,
 	diagnosis		TEXT	NOT NULL,
 	variant			TEXT 	NOT NULL,
 	gen_test_date	DATE	NOT NULL,
