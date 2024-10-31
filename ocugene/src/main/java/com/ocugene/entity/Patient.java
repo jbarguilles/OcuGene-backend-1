@@ -51,6 +51,9 @@ public class Patient {
     @Column(name = "city")
     private String city;
 
+    @Column(name = "barangay")
+    private String barangay;
+
     @Column(name = "marital_status")
     private String maritalStatus;
 

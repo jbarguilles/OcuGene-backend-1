@@ -41,6 +41,9 @@ public class AddPatientRequest {
     @JsonProperty("city")
     private String city;
 
+    @JsonProperty("barangay")
+    private String barangay;
+
     @JsonProperty("marital_status")
     private String maritalStatus;
 
@@ -119,6 +122,8 @@ public class AddPatientRequest {
         patient.setRegion(this.region);
         patient.setProvince(this.province);
         patient.setCity(this.city);
+        patient.setBarangay(this.barangay);
+
         patient.setMaritalStatus(this.maritalStatus);
         patient.setChiefComplaint(this.chiefComplaint);
         patient.setBlurDuration(this.blurDuration);
