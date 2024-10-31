@@ -21,6 +21,24 @@ public class ActivityServiceImpl implements ActivityService{
 
     @Override
     public Activity addActivity(AddActivityRequest addActivityRequest) {
-        return activityRepository.save(addActivityRequest.mapToActivity());
+
+        Activity activity = new Activity();
+        return activityRepository.save(addActivityRequest.mapToActivity(activity));
+    }
+
+    @Override
+    public Activity deleteActivityByID(Integer activityID) {
+
+        Activity deletedActivity = activityRepository.findById(activityID).get();
+        activityRepository.deleteById(activityID);
+
+        return deletedActivity;
+    }
+
+    @Override
+    public Activity editActivity(Integer activityID, AddActivityRequest editActivityRequest) {
+
+        Activity activityToBeEdited = activityRepository.findById(activityID).get();
+        return activityRepository.save(editActivityRequest.mapToActivity(activityToBeEdited));
     }
 }

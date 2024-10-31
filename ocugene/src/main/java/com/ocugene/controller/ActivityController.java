@@ -23,8 +23,18 @@ public class ActivityController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Activity> addUser(@RequestBody AddActivityRequest addActivityRequest) {
+    public ResponseEntity<Activity> addActivity(@RequestBody AddActivityRequest addActivityRequest) {
         return ResponseEntity.ok(activityService.addActivity(addActivityRequest));
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<Activity> deleteActivity(@RequestParam Integer activityID) {
+        return ResponseEntity.ok(activityService.deleteActivityByID(activityID));
+    }
+
+    @PutMapping("/edit")
+    public ResponseEntity<Activity> editActivity(@RequestParam Integer activityID, @RequestBody AddActivityRequest editActivityRequest) {
+        return ResponseEntity.ok(activityService.editActivity(activityID, editActivityRequest));
     }
 
 }

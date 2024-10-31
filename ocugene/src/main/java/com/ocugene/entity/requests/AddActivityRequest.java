@@ -33,9 +33,7 @@ public class AddActivityRequest {
     @JsonProperty("location")
     private String location;
 
-    public Activity mapToActivity(){
-
-        Activity activity = new Activity();
+    public Activity mapToActivity(Activity activity){
 
         activity.setTitle(this.title);
         activity.setActivityType(this.activityType);
@@ -58,5 +56,6 @@ public class AddActivityRequest {
 
         return activity;
     }
+
 
 }
