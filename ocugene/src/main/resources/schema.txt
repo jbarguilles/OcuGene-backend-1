@@ -19,6 +19,7 @@ CREATE TABLE registrydatabase.patient(
 	region 			TEXT 	NOT NULL,
 	province		TEXT	NOT NULL,
 	city			TEXT	NOT NULL,
+	barangay        TEXT    NOT NULL,
 	marital_status 	TEXT 	NOT NULL,
 	chief_complaint	TEXT	NOT NULL,
 	blur_duration 	TEXT	NOT NULL,
@@ -46,4 +47,12 @@ CREATE TABLE registrydatabase.queries(
 	query_message 	TEXT	NOT NULL
 );
 
-SELECT * FROM registrydatabase.users;
+CREATE TABLE registrydatabase.activity(
+	activity_id 	SERIAL 	NOT NULL PRIMARY KEY,
+	title 			TEXT	NOT NULL,
+	activity_type  	TEXT 	NOT NULL,
+	date			DATE	NOT NULL,
+	start_time		TIME WITHOUT TIME ZONE NOT NULL,
+	end_time		TIME WITHOUT TIME ZONE NOT NULL,
+	venue			TEXT	NOT NULL
+);

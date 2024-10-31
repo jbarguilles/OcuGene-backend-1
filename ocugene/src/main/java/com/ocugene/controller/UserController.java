@@ -25,6 +25,4 @@ public class UserController {
         return ResponseEntity.ok(userService.addUser(addUserRequest));
     }
 
-    @GetMapping("/")
-    public ResponseEntity<String> default_Home(){ return ResponseEntity.ok("Hello World");}
 }

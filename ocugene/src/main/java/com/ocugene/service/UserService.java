@@ -9,8 +9,8 @@ import java.util.List;
 @Service
 public interface UserService {
 
-    public List<User> getAllUsers();
+    List<User> getAllUsers();
 
-    public User addUser(AddUserRequest addUserRequest);
+    User addUser(AddUserRequest addUserRequest);
 
 }

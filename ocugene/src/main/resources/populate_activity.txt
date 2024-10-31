@@ -1,0 +1,5 @@
+INSERT INTO registrydatabase.activity (activity_id, title, activity_type, date, start_time, end_time, venue) VALUES
+(1, 'Symposium on Genetic Disorders', 'Symposium', '2023-10-15', '10:00:00', '14:00:00', 'Community Hall, City Center'),
+(2, 'Charity Concert for Rare Diseases', 'Concert', '2023-11-05', '18:00:00', '21:00:00', 'Grand Auditorium, Downtown'),
+(3, 'Monthly Support Group Meeting', 'Support Group', '2023-12-01', '16:00:00', '18:00:00', 'Health Center, Westside'),
+(4, 'Sample Activity', 'Concert', '2024-11-05', '19:00:00', '23:00:00', 'Smart Araneta Coliseum');
