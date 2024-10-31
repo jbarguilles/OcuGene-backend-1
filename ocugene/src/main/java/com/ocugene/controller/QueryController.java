@@ -29,4 +29,9 @@ public class QueryController {
     public ResponseEntity<List<Query>> getAllQueries(){
         return ResponseEntity.ok(queryService.getAllQueries());
     }
+
+    @PutMapping("/respond")
+    public ResponseEntity<Query> respondToQuery(@RequestParam Integer queryID){
+        return ResponseEntity.ok(queryService.respondToQuery(queryID));
+    }
 }

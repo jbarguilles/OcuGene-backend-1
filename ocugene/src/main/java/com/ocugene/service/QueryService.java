@@ -11,5 +11,5 @@ public interface QueryService {
 
     Query addQuery(AddQueryRequest addQueryRequest);
     List<Query> getAllQueries();
-
+    Query respondToQuery(Integer queryID);
 }
