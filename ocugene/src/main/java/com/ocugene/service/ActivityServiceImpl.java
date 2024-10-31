@@ -4,6 +4,7 @@ import com.ocugene.entity.Activity;
 import com.ocugene.entity.requests.AddActivityRequest;
 import com.ocugene.repository.ActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +17,8 @@ public class ActivityServiceImpl implements ActivityService{
 
     @Override
     public List<Activity> getAllActivities() {
-        return activityRepository.findAll();
+        return activityRepository.findAll(Sort.by(Sort.Direction.ASC, "date")
+                .and(Sort.by(Sort.Direction.ASC, "startTime")));
     }
 
     @Override
