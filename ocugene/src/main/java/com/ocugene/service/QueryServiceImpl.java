@@ -14,7 +14,6 @@ public class QueryServiceImpl implements QueryService{
     @Autowired
     QueryRepository queryRepository;
 
-
     @Override
     public Query addQuery(AddQueryRequest addQueryRequest) {
         return queryRepository.save(addQueryRequest.mapToQuery());
@@ -23,5 +22,14 @@ public class QueryServiceImpl implements QueryService{
     @Override
     public List<Query> getAllQueries() {
         return queryRepository.findAll();
+    }
+
+    @Override
+    public Query respondToQuery(Integer queryID) {
+
+        Query query = queryRepository.findById(queryID).get();
+        query.setRespondedFlag(true);
+
+        return queryRepository.save(query);
     }
 }
