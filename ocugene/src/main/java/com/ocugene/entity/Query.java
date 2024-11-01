@@ -19,6 +19,9 @@ public class Query {
     @Column(name = "query_id")
     private Integer queryID;
 
+    @Column(name = "query_type")
+    private String type;
+
     @Column(name = "query_email")
     private String email;
 
