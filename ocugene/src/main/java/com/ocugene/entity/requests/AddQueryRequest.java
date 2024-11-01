@@ -9,6 +9,9 @@ import lombok.Setter;
 @Setter
 public class AddQueryRequest {
 
+    @JsonProperty("type")
+    private String type;
+
     @JsonProperty("email")
     private String email;
 
@@ -18,6 +21,7 @@ public class AddQueryRequest {
     public Query mapToQuery(){
         Query query = new Query();
 
+        query.setType(this.type);
         query.setEmail(this.email);
         query.setMessage(this.message);
         query.setRespondedFlag(false);
