@@ -4,7 +4,8 @@ CREATE SCHEMA registrydatabase
 CREATE TABLE registrydatabase.users(
 	user_id SERIAL NOT NULL PRIMARY KEY,
 	username TEXT	NOT NULL,
-	user_password  TEXT NOT NULL
+	user_password  TEXT NOT NULL,
+	user_role TEXT NOT NULL
 );
 
 CREATE TABLE registrydatabase.patient(
@@ -44,7 +45,8 @@ CREATE TABLE registrydatabase.queries(
 	query_id 		SERIAL	PRIMARY KEY,
 	query_type		TEXT	NOT NULL,
 	query_email		TEXT 	NOT NULL,
-	query_message 	TEXT	NOT NULL
+	query_message 	TEXT	NOT NULL,
+	responded_flag  BOOLEAN NOT NULL    DEFAULT FALSE
 );
 
 CREATE TABLE registrydatabase.activity(

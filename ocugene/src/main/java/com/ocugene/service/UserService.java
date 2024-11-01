@@ -5,6 +5,7 @@ import com.ocugene.entity.requests.AddUserRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface UserService {
@@ -13,4 +14,5 @@ public interface UserService {
 
     User addUser(AddUserRequest addUserRequest);
 
+    Optional<User> getUserByUsername(String username);
 }
