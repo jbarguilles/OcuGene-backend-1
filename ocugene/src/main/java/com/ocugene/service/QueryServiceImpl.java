@@ -4,6 +4,7 @@ import com.ocugene.entity.Query;
 import com.ocugene.entity.requests.AddQueryRequest;
 import com.ocugene.repository.QueryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class QueryServiceImpl implements QueryService{
 
     @Override
     public List<Query> getAllQueries() {
-        return queryRepository.findAll();
+        return queryRepository.findAll(Sort.by(Sort.Direction.ASC, "queryID"));
     }
 
     @Override
@@ -29,6 +30,14 @@ public class QueryServiceImpl implements QueryService{
 
         Query query = queryRepository.findById(queryID).get();
         query.setRespondedFlag(true);
+
+        return queryRepository.save(query);
+    }
+
+    @Override
+    public Query markQueryAsUnread(Integer queryID) {
+        Query query = queryRepository.findById(queryID).get();
+        query.setRespondedFlag(false);
 
         return queryRepository.save(query);
     }
