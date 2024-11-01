@@ -34,4 +34,9 @@ public class QueryController {
     public ResponseEntity<Query> respondToQuery(@RequestParam Integer queryID){
         return ResponseEntity.ok(queryService.respondToQuery(queryID));
     }
+
+    @PutMapping("/mark-as-unread")
+    public ResponseEntity<Query> markQueryAsUnread(@RequestParam Integer queryID){
+        return ResponseEntity.ok(queryService.markQueryAsUnread(queryID));
+    }
 }
