@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RequestServiceImpl implements RequestService {
@@ -22,5 +23,12 @@ public class RequestServiceImpl implements RequestService {
     @Override
     public Request addRequest(AddRequestRequest addRequestRequest) {
         return requestRepository.save(addRequestRequest.mapToRequest());
+    }
+
+    public Optional<Request> updateStatus(int id, String status) {
+        Optional<Request> request = requestRepository.findById(id);
+        request.ifPresent(value -> value.setStatus(status));
+        requestRepository.save(request.get());
+        return request;
     }
 }

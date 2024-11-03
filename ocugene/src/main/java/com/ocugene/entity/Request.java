@@ -36,4 +36,7 @@ public class Request {
 
     @Column(name = "message")
     String message;
+
+    @Column(name = "status")
+    String status;
 }
