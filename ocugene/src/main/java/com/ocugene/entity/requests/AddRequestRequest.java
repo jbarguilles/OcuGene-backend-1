@@ -27,6 +27,9 @@ public class AddRequestRequest {
     @JsonProperty("message")
     String message;
 
+    @JsonProperty("status")
+    String status;
+
     public Request mapToRequest() {
         Request request = new Request();
 
