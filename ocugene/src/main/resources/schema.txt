@@ -67,5 +67,5 @@ CREATE TABLE registrydatabase.requests(
 	supp_docu	TEXT	NOT NULL,
 	institution TEXT	NOT NULL,
 	message 	TEXT	NOT NULL,
-	status      TEXT    NOT NULL DEFAULT "pending"
+	status      TEXT    NOT NULL DEFAULT 'pending'
 );

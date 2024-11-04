@@ -40,4 +40,9 @@ public class PatientServiceImpl implements PatientService{
     public List<Patient> getAllPatients() {
         return patientRepository.findAll();
     }
+
+    @Override
+    public Patient getByPatientCode(String patientCode) {
+        return patientRepository.findByPatientCode(patientCode);
+    }
 }
