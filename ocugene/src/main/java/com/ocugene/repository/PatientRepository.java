@@ -11,6 +11,7 @@ import java.util.List;
 
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Integer> {
+    Patient findByPatientCode(String patientCode);
 
     Patient findTopByOrderByPatientIDDesc();
 

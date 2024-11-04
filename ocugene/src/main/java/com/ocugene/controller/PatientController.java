@@ -49,4 +49,10 @@ public class PatientController {
     public ResponseEntity<List<Patient>> getAllPatients(){
         return ResponseEntity.ok(patientService.getAllPatients());
     }
+
+    @GetMapping("/get-by-patient-code")
+    @ResponseBody
+    public ResponseEntity<Patient> getByPatientID(@RequestParam String patientCode){
+        return ResponseEntity.ok(patientService.getByPatientCode(patientCode));
+    }
 }

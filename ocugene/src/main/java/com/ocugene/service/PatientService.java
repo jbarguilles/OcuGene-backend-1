@@ -17,5 +17,6 @@ public interface PatientService {
     List<RegionCount> countPatientsPerRegion();
     List<VariantCount> countPatientsPerVariant();
     List<Patient> getAllPatients();
+    Patient getByPatientCode(String patientCode);
 
 }
