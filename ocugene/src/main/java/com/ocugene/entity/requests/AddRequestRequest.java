@@ -39,6 +39,7 @@ public class AddRequestRequest {
         request.setSupportingDocuments(this.supportingDocuments);
         request.setInstitution(this.institution);
         request.setMessage(this.message);
+        request.setStatus("pending");
 
         return request;
     }
