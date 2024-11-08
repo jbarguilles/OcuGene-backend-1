@@ -21,6 +21,9 @@ public class Patient {
     @Column(name = "patient_id")
     private Integer patientID;
 
+    @Column(name = "patient_code", unique = true)
+    private String patientCode;
+
     @Column(name = "first_name")
     private String firstName;
 
@@ -30,14 +33,20 @@ public class Patient {
     @Column(name = "last_name")
     private String lastName;
 
+    @Column(name = "birthday")
+    private Date birthday;
+
     @Column(name = "age")
     private int age;
 
     @Column(name = "sex")
     private String sex;
 
-    @Column(name = "birthday")
-    private Date birthday;
+    @Column(name = "marital_status")
+    private String maritalStatus;
+
+    @Column(name = "contact_number")
+    private String contactNumber;
 
     @Column(name = "address")
     private String address;
@@ -54,17 +63,14 @@ public class Patient {
     @Column(name = "barangay")
     private String barangay;
 
-    @Column(name = "marital_status")
-    private String maritalStatus;
-
     @Column(name = "chief_complaint")
     private String chiefComplaint;
 
-    @Column(name = "blur_duration")
-    private String blurDuration;
-
     @Column(name = "laterality")
     private String laterality;
+
+    @Column(name = "blur_duration")
+    private String blurDuration;
 
     @Column(name = "family_member")
     private String familyMember;
@@ -87,9 +93,6 @@ public class Patient {
     @Column(name = "gen_test_date")
     private Date genTestDate;
 
-    @Column(name = "patient_code")
-    private String patientCode;
-
     @Column(name = "right_bcva")
     String rightBCVA;
 
@@ -107,4 +110,9 @@ public class Patient {
 
     @Column(name = "left_cornea")
     String leftCornea;
+
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, optional = false, orphanRemoval = true)
+    @JoinColumn(name = "credentials_id", nullable = false, unique = true)
+    private User credentials;
+
 }

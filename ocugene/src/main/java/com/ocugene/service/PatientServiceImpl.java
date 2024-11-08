@@ -1,10 +1,12 @@
 package com.ocugene.service;
 
 import com.ocugene.entity.Patient;
+import com.ocugene.entity.User;
 import com.ocugene.entity.projection.RegionCount;
 import com.ocugene.entity.projection.VariantCount;
 import com.ocugene.entity.requests.AddPatientRequest;
 import com.ocugene.repository.PatientRepository;
+import com.ocugene.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +18,27 @@ public class PatientServiceImpl implements PatientService{
     @Autowired
     PatientRepository patientRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
     public Patient registerPatient(AddPatientRequest addPatientRequest){
         Patient patient = addPatientRequest.mapToPatient();
+
+        User user = new User();
+        user.setUserType("patient");
+        user.setUsername(addPatientRequest.getPatientCode());
+
+        String patientFirstName = addPatientRequest.getFirstName().toLowerCase().replace(" ", "");
+        String patientLastName = addPatientRequest.getLastName().toLowerCase().replace(" ", "");
+
+        user.setUserPassword(patientFirstName.concat(patientLastName));
+        user.setFirstName(addPatientRequest.getFirstName());
+        user.setLastName(addPatientRequest.getLastName());
+        user.setContactNumber(addPatientRequest.getContactNumber());
+
+        patient.setCredentials(user);
+        userRepository.save(user);
+
         return patientRepository.save(patient);
     }
 
