@@ -2,6 +2,7 @@ package com.ocugene.entity.requests;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ocugene.entity.Patient;
+import com.ocugene.entity.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,14 +21,20 @@ public class AddPatientRequest {
     @JsonProperty("last_name")
     private String lastName;
 
+    @JsonProperty("birthday")
+    private String birthday;
+
     @JsonProperty("age")
     private int age;
 
     @JsonProperty("sex")
     private String sex;
 
-    @JsonProperty("birthday")
-    private String birthday;
+    @JsonProperty("marital_status")
+    private String maritalStatus;
+
+    @JsonProperty("contact_number")
+    private String contactNumber;
 
     @JsonProperty("address")
     private String address;
@@ -44,17 +51,14 @@ public class AddPatientRequest {
     @JsonProperty("barangay")
     private String barangay;
 
-    @JsonProperty("marital_status")
-    private String maritalStatus;
-
     @JsonProperty("chief_complaint")
     private String chiefComplaint;
 
-    @JsonProperty("blur_duration")
-    private String blurDuration;
-
     @JsonProperty("laterality")
     private String laterality;
+
+    @JsonProperty("blur_duration")
+    private String blurDuration;
 
     @JsonProperty("family_member")
     private String familyMember;
@@ -100,12 +104,16 @@ public class AddPatientRequest {
 
     public Patient mapToPatient(){
         Patient patient = new Patient();
-        patient.setFirstName(this.firstName);
 
+        patient.setPatientCode(this.patientCode);
+        patient.setFirstName(this.firstName);
         patient.setMiddleName(this.middleName);
         patient.setLastName(this.lastName);
+
         patient.setAge(this.age);
         patient.setSex(this.sex);
+        patient.setMaritalStatus(this.maritalStatus);
+        patient.setContactNumber(this.contactNumber);
 
         if(this.birthday != null && this.ergDate != null && this.genTestDate != null){
             patient.setBirthday(Date.valueOf(this.birthday));
@@ -124,7 +132,6 @@ public class AddPatientRequest {
         patient.setCity(this.city);
         patient.setBarangay(this.barangay);
 
-        patient.setMaritalStatus(this.maritalStatus);
         patient.setChiefComplaint(this.chiefComplaint);
         patient.setBlurDuration(this.blurDuration);
         patient.setLaterality(this.laterality);
@@ -133,7 +140,6 @@ public class AddPatientRequest {
         patient.setErgResult(this.ergResult);
         patient.setDiagnosis(this.diagnosis);
         patient.setVariant(this.variant);
-        patient.setPatientCode(this.patientCode);
 
         patient.setRightBCVA(this.rightBCVA);
         patient.setLeftBCVA(this.leftBCVA);
@@ -141,6 +147,8 @@ public class AddPatientRequest {
         patient.setLeftCornea(this.leftCornea);
         patient.setRightRetina(this.rightRetina);
         patient.setLeftRetina(this.leftRetina);
+
+
 
         return patient;
     }

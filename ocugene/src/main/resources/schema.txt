@@ -12,22 +12,24 @@ CREATE TABLE registrydatabase.user(
 );
 
 CREATE TABLE registrydatabase.patient(
-	patient_id 		SERIAL 	NOT NULL PRIMARY KEY,
+	patient_id 		SERIAL 	NOT NULL 	PRIMARY KEY,
+	patient_code   	TEXT   	NOT NULL	UNIQUE,
 	first_name 		TEXT 	NOT NULL,
 	middle_name 	TEXT,
 	last_name 		TEXT 	NOT NULL,
-	sex 			TEXT 	NOT NULL,
 	birthday 		DATE 	NOT NULL,
-	age             INT     NOT NULL,
+	age            	INT    	NOT NULL,
+	sex 			TEXT 	NOT NULL,
+    marital_status 	TEXT 	NOT NULL,
+    contact_number 	TEXT    NOT NULL,
 	address 		TEXT 	NOT NULL,
 	region 			TEXT 	NOT NULL,
 	province		TEXT	NOT NULL,
 	city			TEXT	NOT NULL,
-	barangay        TEXT    NOT NULL,
-	marital_status 	TEXT 	NOT NULL,
+	barangay       	TEXT   	NOT NULL,
 	chief_complaint	TEXT	NOT NULL,
-	blur_duration 	TEXT	NOT NULL,
 	laterality 		TEXT	NOT NULL,
+	blur_duration 	TEXT	NOT NULL,
 	family_member	TEXT,
 	sibling_count	INT		NOT NULL,
 	erg_date 		DATE	NOT NULL,
@@ -41,7 +43,8 @@ CREATE TABLE registrydatabase.patient(
 	left_retina		TEXT	NOT NULL,
 	right_cornea	TEXT	NOT NULL,
 	left_cornea		TEXT	NOT NULL,
-	patient_code    TEXT    NOT NULL
+	credentials_id	INT		NOT NULL,
+	FOREIGN KEY (credentials_id) REFERENCES registrydatabase.user(user_id)
 );
 
 CREATE TABLE registrydatabase.queries(
