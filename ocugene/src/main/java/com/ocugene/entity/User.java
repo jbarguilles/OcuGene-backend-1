@@ -25,6 +25,15 @@ public class User {
     @Column(name = "user_password")
     String userPassword;
 
-    @Column(name = "user_role")
-    String userRole;
+    @Column(name = "user_type")
+    String userType;
+
+    @Column(name = "first_name")
+    String firstName;
+
+    @Column(name = "last_name")
+    String lastName;
+
+    @Column(name = "contact_number")
+    String contactNumber;
 }

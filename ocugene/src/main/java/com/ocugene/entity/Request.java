@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "requests", schema = "registrydatabase")
+@Table(name = "request", schema = "registrydatabase")
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -24,6 +24,15 @@ public class Request {
 
     @Column(name = "password")
     String password;
+
+    @Column(name = "first_name")
+    String firstName;
+
+    @Column(name = "last_name")
+    String lastName;
+
+    @Column(name = "contact_number")
+    String contactNumber;
 
     @Column(name = "user_type")
     String userType;

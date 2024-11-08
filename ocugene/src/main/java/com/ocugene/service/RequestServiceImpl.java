@@ -34,21 +34,25 @@ public class RequestServiceImpl implements RequestService {
         Optional<Request> request = requestRepository.findById(id);
 
         if(request.isPresent()){
+
             Request actualRequest = request.get();
             actualRequest.setStatus(status);
+            requestRepository.save(actualRequest);
 
-            if(status.equalsIgnoreCase("accepted")){
+            if(status.equalsIgnoreCase("accepted")) {
+
                 User user = new User();
+
                 user.setUsername(actualRequest.getEmail());
                 user.setUserPassword(actualRequest.getPassword());
-                user.setUserRole(actualRequest.getUserType());
+                user.setUserType(actualRequest.getUserType());
+                user.setFirstName(actualRequest.getFirstName());
+                user.setLastName(actualRequest.getLastName());
+                user.setContactNumber(actualRequest.getContactNumber());
 
                 userRepository.save(user);
             }
         }
-//        request.ifPresent(value -> value.setStatus(status));
-        requestRepository.save(request.get());
-
 
         return request;
     }
