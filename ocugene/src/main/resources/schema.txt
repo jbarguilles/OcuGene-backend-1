@@ -1,11 +1,14 @@
 CREATE SCHEMA registrydatabase
 	AUTHORIZATION postgres;
 
-CREATE TABLE registrydatabase.users(
-	user_id SERIAL NOT NULL PRIMARY KEY,
-	username TEXT	NOT NULL,
-	user_password  TEXT NOT NULL,
-	user_role TEXT NOT NULL
+CREATE TABLE registrydatabase.user(
+	user_id 		SERIAL 	NOT NULL 	PRIMARY KEY,
+	username 		TEXT	NOT NULL,
+	user_password  	TEXT 	NOT NULL,
+	user_type 		TEXT 	NOT NULL,
+	first_name 		TEXT 	NOT NULL,
+	last_name 		TEXT 	NOT NULL,
+	contact_number 	TEXT 	NOT NULL
 );
 
 CREATE TABLE registrydatabase.patient(
@@ -59,13 +62,16 @@ CREATE TABLE registrydatabase.activity(
 	venue			TEXT	NOT NULL
 );
 
-CREATE TABLE registrydatabase.requests(
-    request_id 	SERIAL 	NOT NULL	PRIMARY KEY,
-	email 		TEXT 	NOT NULL,
-	password 	TEXT	NOT NULL,
-	user_type 	TEXT 	NOT NULL,
-	supp_docu	TEXT	NOT NULL,
-	institution TEXT	NOT NULL,
-	message 	TEXT	NOT NULL,
-	status      TEXT    NOT NULL DEFAULT 'pending'
+CREATE TABLE registrydatabase.request(
+    request_id 		SERIAL 	NOT NULL	PRIMARY KEY,
+	email 			TEXT 	NOT NULL,
+	password 		TEXT	NOT NULL,
+	first_name		TEXT	NOT NULL,
+	last_name		TEXT	NOT NULL,
+	contact_number	TEXT	NOT NULL,
+	user_type 		TEXT 	NOT NULL,
+	supp_docu		TEXT	NOT NULL,
+	institution 	TEXT	NOT NULL,
+	message 	    TEXT	NOT NULL,
+	status          TEXT    NOT NULL DEFAULT 'pending'
 );

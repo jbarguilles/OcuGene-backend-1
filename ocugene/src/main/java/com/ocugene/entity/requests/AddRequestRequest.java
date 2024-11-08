@@ -15,6 +15,15 @@ public class AddRequestRequest {
     @JsonProperty("password")
     String password;
 
+    @JsonProperty("firstName")
+    String firstName;
+
+    @JsonProperty("lastName")
+    String lastName;
+
+    @JsonProperty("contactNumber")
+    String contactNumber;
+
     @JsonProperty("userType")
     String userType;
 
@@ -35,6 +44,11 @@ public class AddRequestRequest {
 
         request.setEmail(this.email);
         request.setPassword(this.password);
+
+        request.setFirstName(this.firstName);
+        request.setLastName(this.lastName);
+        request.setContactNumber(this.contactNumber);
+
         request.setUserType(this.userType);
         request.setSupportingDocuments(this.supportingDocuments);
         request.setInstitution(this.institution);

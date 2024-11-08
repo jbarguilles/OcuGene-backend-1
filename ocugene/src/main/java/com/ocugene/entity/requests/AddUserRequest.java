@@ -15,15 +15,27 @@ public class AddUserRequest {
     @JsonProperty("user_password")
     private String userPassword;
 
-    @JsonProperty("user_role")
-    private String userRole;
+    @JsonProperty("user_type")
+    private String userType;
+
+    @JsonProperty("first_name")
+    private String firstName;
+
+    @JsonProperty("last_name")
+    private String lastName;
+
+    @JsonProperty("contactNumber")
+    private String contactNumber;
 
     public User mapToUser(){
         User user = new User();
 
         user.setUsername(this.username);
         user.setUserPassword(this.userPassword);
-        user.setUserRole(this.userRole);
+        user.setUserType(this.userType);
+        user.setFirstName(this.firstName);
+        user.setLastName(this.lastName);
+        user.setContactNumber(this.contactNumber);
 
         return user;
     }
