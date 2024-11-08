@@ -11,8 +11,6 @@ import java.util.Optional;
 public interface UserService {
 
     List<User> getAllUsers();
-
     User addUser(AddUserRequest addUserRequest);
-
     Optional<User> getUserByUsername(String username);
 }
