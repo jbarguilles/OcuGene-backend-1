@@ -41,4 +41,9 @@ public class UserController {
         return ResponseEntity.ok(userService.addUser(addUserRequest));
     }
 
+    @GetMapping("/getByUsername")
+    public ResponseEntity<User> getUserByUsername(@RequestParam String username){
+        return ResponseEntity.ok(userService.getUserByUsername(username).get());
+    }
+
 }
