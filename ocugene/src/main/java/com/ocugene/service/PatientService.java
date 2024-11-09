@@ -1,6 +1,7 @@
 package com.ocugene.service;
 
 import com.ocugene.entity.Patient;
+import com.ocugene.entity.projection.PatientProjection;
 import com.ocugene.entity.projection.RegionCount;
 import com.ocugene.entity.projection.VariantCount;
 import com.ocugene.entity.requests.AddPatientRequest;
@@ -18,5 +19,6 @@ public interface PatientService {
     List<VariantCount> countPatientsPerVariant();
     List<Patient> getAllPatients();
     Patient getByPatientCode(String patientCode);
+    List<PatientProjection> getAllProjectedBy();
 
 }

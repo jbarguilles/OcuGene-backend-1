@@ -141,8 +141,8 @@ public class AddPatientRequest {
         patient.setDiagnosis(this.diagnosis);
         patient.setVariant(this.variant);
 
-        patient.setRightBCVA(this.rightBCVA);
-        patient.setLeftBCVA(this.leftBCVA);
+        patient.setRightBcva(this.rightBCVA);
+        patient.setLeftBcva(this.leftBCVA);
         patient.setRightCornea(this.rightCornea);
         patient.setLeftCornea(this.leftCornea);
         patient.setRightRetina(this.rightRetina);
