@@ -2,6 +2,7 @@ package com.ocugene.service;
 
 import com.ocugene.entity.Patient;
 import com.ocugene.entity.User;
+import com.ocugene.entity.projection.PatientProjection;
 import com.ocugene.entity.projection.RegionCount;
 import com.ocugene.entity.projection.VariantCount;
 import com.ocugene.entity.requests.AddPatientRequest;
@@ -65,5 +66,9 @@ public class PatientServiceImpl implements PatientService{
     @Override
     public Patient getByPatientCode(String patientCode) {
         return patientRepository.findByPatientCode(patientCode);
+    }
+    @Override
+    public List<PatientProjection> getAllProjectedBy(){
+        return patientRepository.findAllProjectedBy();
     }
 }

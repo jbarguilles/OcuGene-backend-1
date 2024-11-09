@@ -1,6 +1,7 @@
 package com.ocugene.controller;
 
 import com.ocugene.entity.Patient;
+import com.ocugene.entity.projection.PatientProjection;
 import com.ocugene.entity.projection.RegionCount;
 import com.ocugene.entity.projection.VariantCount;
 import com.ocugene.entity.requests.AddPatientRequest;
@@ -48,6 +49,12 @@ public class PatientController {
     @ResponseBody
     public ResponseEntity<List<Patient>> getAllPatients(){
         return ResponseEntity.ok(patientService.getAllPatients());
+    }
+
+    @GetMapping("/get-all-projections")
+    @ResponseBody
+    public ResponseEntity<List<PatientProjection>> getAllPatientsProjectedBy(){
+        return ResponseEntity.ok(patientService.getAllProjectedBy());
     }
 
     @GetMapping("/get-by-patient-code")

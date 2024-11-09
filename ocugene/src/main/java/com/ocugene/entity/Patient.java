@@ -1,5 +1,6 @@
 package com.ocugene.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -94,10 +95,10 @@ public class Patient {
     private Date genTestDate;
 
     @Column(name = "right_bcva")
-    String rightBCVA;
+    String rightBcva;
 
     @Column(name = "left_bcva")
-    String leftBCVA;
+    String leftBcva;
 
     @Column(name = "right_retina")
     String rightRetina;
@@ -111,6 +112,7 @@ public class Patient {
     @Column(name = "left_cornea")
     String leftCornea;
 
+    @JsonIgnore
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, optional = false, orphanRemoval = true)
     @JoinColumn(name = "credentials_id", nullable = false, unique = true)
     private User credentials;
