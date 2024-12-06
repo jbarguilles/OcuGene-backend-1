@@ -23,7 +23,7 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
             "    mode() WITHIN GROUP (ORDER BY p.blur_duration) AS duration,\n" +
             "    ROUND(AVG(p.age), 2) AS age\n" +
             "FROM \n" +
-            "    registrydatabase.patient p\n" +
+            "    public.patient p\n" +
             "GROUP BY \n" +
             "    p.diagnosis, \n" +
             "    p.variant\n" +
@@ -31,13 +31,13 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
             "    p.diagnosis ASC;\n", nativeQuery = true)
     List<VariantCount> countPatientsPerVariant();
 
-    @Query(value = "select p.diagnosis as name, p.region, count(DISTINCT p) from registrydatabase.patient p group by p.diagnosis, p.region order by p.diagnosis asc", nativeQuery = true)
+    @Query(value = "select p.diagnosis as name, p.region, count(DISTINCT p) from public.patient p group by p.diagnosis, p.region order by p.diagnosis asc", nativeQuery = true)
     List<RegionCount> countPatientsPerRegion();
 
     @Query(value = "select p.patient_code, p.birthday, p.age, p.sex, p.marital_status, p.region, p.province, " +
             "p.city, p.barangay, p. chief_complaint, p.laterality, p.blur_duration, p.family_member, p.sibling_count, p.erg_date, " +
             "p.erg_result, p.diagnosis, p.variant, p.gen_test_date, p.right_bcva, p.left_bcva, p.right_retina, p.left_retina, " +
-            "p.right_cornea, p.left_cornea from registrydatabase.patient p", nativeQuery = true)
+            "p.right_cornea, p.left_cornea from public.patient p", nativeQuery = true)
     List<PatientProjection> findAllProjectedBy();
 
 

@@ -1,3 +1,11 @@
+INSERT INTO public.user (user_id, username, user_password, user_type,first_name,last_name,contact_number) VALUES (1, '20240001', 'daltonstainburn', 'PATIENT', 'alfred','cruz', '09197765432');
+INSERT INTO public.user (user_id, username, user_password, user_type,first_name,last_name,contact_number) VALUES (2, '20240002', 'juanacrenshaw', 'PATIENT', 'john','cruz', '09197765432');
+INSERT INTO public.user (user_id, username, user_password, user_type,first_name,last_name,contact_number) VALUES (3, '20240003', 'hedvigeharbottle', 'PATIENT', 'anna','cruz', '09197765432');
+INSERT INTO public.user (user_id, username, user_password, user_type,first_name,last_name,contact_number) VALUES (4, '20240004', 'donnellnicolson', 'PATIENT', 'kim','cruz', '09197765432');
+INSERT INTO public.user (user_id, username, user_password, user_type,first_name,last_name,contact_number) VALUES (5, '20240005', 'ashleighryhorovich', 'PATIENT', 'keith','cruz', '09197765432');
+
+
+
 INSERT INTO registrydatabase.user (user_id, username, user_password, user_role) VALUES (1, '20240001', 'daltonstainburn', 'PATIENT');
 INSERT INTO registrydatabase.user (user_id, username, user_password, user_role) VALUES (2, '20240002', 'juanacrenshaw', 'PATIENT');
 INSERT INTO registrydatabase.user (user_id, username, user_password, user_role) VALUES (3, '20240003', 'hedvigeharbottle', 'PATIENT');

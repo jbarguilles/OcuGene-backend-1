@@ -1,3 +1,61 @@
+INSERT INTO public.patient (patient_code, first_name, middle_name, last_name, birthday, age, sex, marital_status, contact_number, address, region, province, city, barangay, chief_complaint, laterality, blur_duration, family_member, sibling_count, erg_date, erg_result, diagnosis, variant, gen_test_date, right_bcva, left_bcva, right_retina, left_retina, right_cornea, left_cornea, credentials_id)
+VALUES
+('20240002', 'John', 'D.', 'Doe', '1990-05-15', 34, 'M', 'Single', '09123456789', '123 Main St', 'Region 1', 'Province 1', 'City A', 'Barangay 1', 'Blurred vision', 'Bilateral', '6 months', 'Father', 2, '2024-06-10', 'Normal', 'Stargardt Disease', 'ABCA4 mutation', '2024-06-15', 20/25, 20/30, 'Normal', 'Normal', 'Normal', 'Normal', 2);
+
+INSERT INTO public.patient (patient_code, first_name, middle_name, last_name, birthday, age, sex, marital_status, contact_number, address, region, province, city, barangay, chief_complaint, laterality, blur_duration, family_member, sibling_count, erg_date, erg_result, diagnosis, variant, gen_test_date, right_bcva, left_bcva, right_retina, left_retina, right_cornea, left_cornea, credentials_id)
+VALUES
+('20240003', 'Jane', 'A.', 'Smith', '1985-11-20', 39, 'F', 'Married', '09234567890', '456 Elm St', 'Region 2', 'Province 2', 'City B', 'Barangay 2', 'Loss of central vision', 'Bilateral', '1 year', 'Mother', 1, '2024-05-25', 'Abnormal', 'Stargardt Disease', 'ABCA4 mutation', '2024-06-10', 20/30, 20/40, 'Normal', 'Normal', 'Normal', 'Normal', 3);
+
+INSERT INTO public.patient (patient_code, first_name, middle_name, last_name, birthday, age, sex, marital_status, contact_number, address, region, province, city, barangay, chief_complaint, laterality, blur_duration, family_member, sibling_count, erg_date, erg_result, diagnosis, variant, gen_test_date, right_bcva, left_bcva, right_retina, left_retina, right_cornea, left_cornea, credentials_id)
+VALUES
+('20240004', 'Michael', 'B.', 'Johnson', '2000-02-10', 24, 'M', 'Single', '09345678901', '789 Oak St', 'Region 3', 'Province 3', 'City C', 'Barangay 3', 'Night blindness', 'Bilateral', '2 years', 'Sister', 3, '2024-07-15', 'Abnormal', 'Cone Rod Dystrophy', 'CNGB3 mutation', '2024-07-20', 20/50, 20/60, 'Normal', 'Normal', 'Normal', 'Normal', 4);
+
+INSERT INTO public.patient (patient_code, first_name, middle_name, last_name, birthday, age, sex, marital_status, contact_number, address, region, province, city, barangay, chief_complaint, laterality, blur_duration, family_member, sibling_count, erg_date, erg_result, diagnosis, variant, gen_test_date, right_bcva, left_bcva, right_retina, left_retina, right_cornea, left_cornea, credentials_id)
+VALUES
+('20240005', 'Emily', 'C.', 'Davis', '1998-08-30', 26, 'F', 'Married', '09456789012', '101 Pine St', 'Region 4', 'Province 4', 'City D', 'Barangay 4', 'Decreased color vision', 'Unilateral', '3 months', 'Brother', 2, '2024-06-18', 'Normal', 'Cone Rod Dystrophy', 'CNGB3 mutation', '2024-06-25', 20/40, 20/50, 'Normal', 'Normal', 'Normal', 'Normal', 5);
+
+INSERT INTO public.patient (patient_code, first_name, middle_name, last_name, birthday, age, sex, marital_status, contact_number, address, region, province, city, barangay, chief_complaint, laterality, blur_duration, family_member, sibling_count, erg_date, erg_result, diagnosis, variant, gen_test_date, right_bcva, left_bcva, right_retina, left_retina, right_cornea, left_cornea, credentials_id)
+VALUES
+('20240006', 'David', 'E.', 'Martinez', '1992-07-12', 32, 'M', 'Single', '09567890123', '202 Maple St', 'Region 5', 'Province 5', 'City E', 'Barangay 5', 'Difficulty seeing in dim light', 'Bilateral', '1 year', 'Uncle', 4, '2024-04-22', 'Normal', 'Stargardt Disease', 'ABCA4 mutation', '2024-05-01', 20/25, 20/30, 'Normal', 'Normal', 'Normal', 'Normal', 6);
+
+INSERT INTO public.patient (patient_code, first_name, middle_name, last_name, birthday, age, sex, marital_status, contact_number, address, region, province, city, barangay, chief_complaint, laterality, blur_duration, family_member, sibling_count, erg_date, erg_result, diagnosis, variant, gen_test_date, right_bcva, left_bcva, right_retina, left_retina, right_cornea, left_cornea, credentials_id)
+VALUES
+('20240007', 'Sophia', 'F.', 'Lopez', '1994-03-22', 30, 'F', 'Married', '09678901234', '303 Birch St', 'Region 6', 'Province 6', 'City F', 'Barangay 6', 'Sensitivity to bright lights', 'Unilateral', '6 months', 'Father', 3, '2024-05-12', 'Abnormal', 'Cone Rod Dystrophy', 'CNGB3 mutation', '2024-05-20', 20/40, 20/50, 'Normal', 'Normal', 'Normal', 'Normal', 7);
+
+INSERT INTO public.patient (patient_code, first_name, middle_name, last_name, birthday, age, sex, marital_status, contact_number, address, region, province, city, barangay, chief_complaint, laterality, blur_duration, family_member, sibling_count, erg_date, erg_result, diagnosis, variant, gen_test_date, right_bcva, left_bcva, right_retina, left_retina, right_cornea, left_cornea, credentials_id)
+VALUES
+('20240008', 'Daniel', 'G.', 'Wilson', '1995-12-25', 29, 'M', 'Single', '09789012345', '404 Cedar St', 'Region 7', 'Province 7', 'City G', 'Barangay 7', 'Reduced peripheral vision', 'Bilateral', '2 years', 'Mother', 2, '2024-06-03', 'Normal', 'Stargardt Disease', 'ABCA4 mutation', '2024-06-10', 20/25, 20/30, 'Normal', 'Normal', 'Normal', 'Normal', 8);
+
+INSERT INTO public.patient (patient_code, first_name, middle_name, last_name, birthday, age, sex, marital_status, contact_number, address, region, province, city, barangay, chief_complaint, laterality, blur_duration, family_member, sibling_count, erg_date, erg_result, diagnosis, variant, gen_test_date, right_bcva, left_bcva, right_retina, left_retina, right_cornea, left_cornea, credentials_id)
+VALUES
+('20240009', 'Olivia', 'H.', 'Taylor', '1989-01-17', 35, 'F', 'Divorced', '09890123456', '505 Fir St', 'Region 8', 'Province 8', 'City H', 'Barangay 8', 'Difficulty reading', 'Bilateral', '4 months', 'Grandfather', 1, '2024-04-10', 'Normal', 'Cone Rod Dystrophy', 'CNGB3 mutation', '2024-04-15', 20/30, 20/40, 'Normal', 'Normal', 'Normal', 'Normal', 9);
+
+INSERT INTO public.patient (patient_code, first_name, middle_name, last_name, birthday, age, sex, marital_status, contact_number, address, region, province, city, barangay, chief_complaint, laterality, blur_duration, family_member, sibling_count, erg_date, erg_result, diagnosis, variant, gen_test_date, right_bcva, left_bcva, right_retina, left_retina, right_cornea, left_cornea, credentials_id)
+VALUES
+('20240010', 'Lucas', 'I.', 'Martin', '2002-04-09', 22, 'M', 'Single', '09123456780', '606 Walnut St', 'Region 9', 'Province 9', 'City I', 'Barangay 9', 'Difficulty seeing at night', 'Bilateral', '8 months', 'Cousin', 1, '2024-07-02', 'Abnormal', 'Stargardt Disease', 'ABCA4 mutation', '2024-07-10', 20/25, 20/30, 'Normal', 'Normal', 'Normal', 'Normal', 10);
+
+INSERT INTO public.patient (patient_code, first_name, middle_name, last_name, birthday, age, sex, marital_status, contact_number, address, region, province, city, barangay, chief_complaint, laterality, blur_duration, family_member, sibling_count, erg_date, erg_result, diagnosis, variant, gen_test_date, right_bcva, left_bcva, right_retina, left_retina, right_cornea, left_cornea, credentials_id)
+VALUES
+('20240011', 'Mason', 'J.', 'Rodriguez', '1996-11-05', 28, 'M', 'Single', '09234567891', '707 Cherry St', 'Region 10', 'Province 10', 'City J', 'Barangay 10', 'Blurred central vision', 'Bilateral', '2 years', 'Aunt', 2, '2024-08-15', 'Normal', 'Cone Rod Dystrophy', 'CNGB3 mutation', '2024-08-20', 20/40, 20/50, 'Normal', 'Normal', 'Normal', 'Normal', 10);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 insert into registrydatabase.patient (patient_id, first_name, middle_name, last_name, sex, birthday, age, address, province, city, region, marital_status, chief_complaint, blur_duration, laterality, family_member, sibling_count, erg_date, erg_result, diagnosis, variant, gen_test_date, right_bcva, left_bcva, right_retina, left_retina, right_cornea, left_cornea, patient_code) values (1, 'Dalton', 'Ernshaw', 'Stainburn', 'Male', '1914-09-20', 110.1841417111, '52034 Bultman Hill', 'Mountain Province', 'Zamboanga City', 'Region VII', 'Married', 'eye pain', '4 years', 'Right', 'Father', 2, '2023-07-28', 'Decreased a wave', 'Retinitis Pigmentosa', 'RP4', '2024-05-19', '20/80', '20/20', '20/80', '20/20', '20/20', '20/40', '20240001');
 insert into registrydatabase.patient (patient_id, first_name, middle_name, last_name, sex, birthday, age, address, province, city, region, marital_status, chief_complaint, blur_duration, laterality, family_member, sibling_count, erg_date, erg_result, diagnosis, variant, gen_test_date, right_bcva, left_bcva, right_retina, left_retina, right_cornea, left_cornea, patient_code) values (2, 'Juana', 'Code', 'Crenshaw', 'Female', '1938-04-09', 86.6194013508, '89 Dennis Park', 'Quirino', 'San Carlos City', 'Region IX', 'Single', 'eye pain', '2 years', 'Both', 'Father', 10, '2022-02-16', 'Decreased a wave', 'Cone Rod Dystrophy', 'ABCA4', '2024-09-07', '20/20', '20/100', '20/40', '20/60', '20/40', '20/40', '20240002');
 insert into registrydatabase.patient (patient_id, first_name, middle_name, last_name, sex, birthday, age, address, province, city, region, marital_status, chief_complaint, blur_duration, laterality, family_member, sibling_count, erg_date, erg_result, diagnosis, variant, gen_test_date, right_bcva, left_bcva, right_retina, left_retina, right_cornea, left_cornea, patient_code) values (3, 'Hedvige', 'Buffy', 'Harbottle', 'Female', '1985-04-25', 39.5416031202, '4 Clyde Gallagher Trail', 'Abra', 'Lapu-Lapu City', 'Region II', 'Divorced', 'blurred vision', '10 years', 'Left', 'Father', 9, '2023-04-06', 'Decreased a wave', 'Retinitis Pigmentosa', 'RPE65', '2024-05-31', '20/40', '20/80', '20/20', '20/20', '20/80', '20/40', '20240003');
