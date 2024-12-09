@@ -15,4 +15,5 @@ public interface UserService {
     void saveUser(User user);
     Optional<User> getUserByUsername(String username);
     void forgotPassword(String email);
+    int verifyUserUsingCode(String code);
 }
