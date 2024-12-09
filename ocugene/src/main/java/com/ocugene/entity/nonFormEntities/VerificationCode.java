@@ -28,7 +28,7 @@ public class VerificationCode {
     @JoinColumn(name = "user_id", nullable = false)
     private User ocugeneUser;
 
-    @Column(name = "isValid")
+    @Column(name = "is_valid")
     private Boolean isValid;
 
 }

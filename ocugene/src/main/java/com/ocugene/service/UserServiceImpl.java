@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
         if(userRepository.findByEmail(email).isPresent()){
             user = userRepository.findByEmail(email).get();
 
-            //create the verif code
+            //create the verification code
             verificationCode = createVerificationCode(user);
 
             //send to the user's email
