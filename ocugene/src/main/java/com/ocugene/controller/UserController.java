@@ -56,10 +56,10 @@ public class UserController {
     }
 
     @PostMapping("/verify-user-using-code")
-    public int verifyuserViaCode(@RequestParam String code){
+    public ResponseEntity<User> verifyuserViaCode(@RequestParam String code){
 
         //this will return the corresponding user id of the user that requested for forgotten password reset
-        return userService.verifyUserUsingCode(code);
+        return ResponseEntity.ok(userService.verifyUserUsingCode(code));
     }
 
     @PutMapping("/change-password")
@@ -73,4 +73,7 @@ public class UserController {
 
         return ResponseEntity.ok( "success");
     }
+
+
+
 }

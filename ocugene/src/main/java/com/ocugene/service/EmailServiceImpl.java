@@ -41,7 +41,7 @@ public class EmailServiceImpl implements EmailService{
     @Override
     public void sendVerificationEmail(VerificationCode verificationCode) {
         try {
-            String textBody = "Enter this code to reset your password: " + verificationCode.getCode() + ".Note that this code will expire after 15 minutes.";
+            String textBody = "Enter this code to reset your password: " + verificationCode.getCode() + ". Note that this code will expire after 15 minutes.";
 
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");

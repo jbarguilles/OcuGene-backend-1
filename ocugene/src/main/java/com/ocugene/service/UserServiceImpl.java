@@ -8,11 +8,8 @@ import com.ocugene.repository.VerificationCodeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -109,7 +106,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int verifyUserUsingCode(String code) {
+    public User verifyUserUsingCode(String code) {
 
         //check if the verification code exists in th table
         if(verificationCodeRepository.findByCode(code).isPresent()){
@@ -162,7 +159,7 @@ public class UserServiceImpl implements UserService {
                 } else {
                     // The code is still valid (within 15 minutes)
                     // Handle valid verification code
-                    return codeOwner.getUserId();
+                    return codeOwner;
                 }
 
 
@@ -175,7 +172,7 @@ public class UserServiceImpl implements UserService {
             System.out.println("No such code exists!");
         }
 
-        return -1;
+        return null;
     }
 
 
