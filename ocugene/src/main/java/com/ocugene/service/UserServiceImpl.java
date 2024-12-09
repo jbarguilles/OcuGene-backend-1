@@ -34,6 +34,10 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(addUserRequest.mapToUser());
     }
 
+    public void saveUser(User user){
+        userRepository.save(user);
+    }
+
     @Override
     public Optional<User> getUserByUsername(String username) {
         return userRepository.findByUsername(username);

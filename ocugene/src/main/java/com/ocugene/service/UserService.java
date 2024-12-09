@@ -12,6 +12,7 @@ public interface UserService {
 
     List<User> getAllUsers();
     User addUser(AddUserRequest addUserRequest);
+    void saveUser(User user);
     Optional<User> getUserByUsername(String username);
     void forgotPassword(String email);
 }
