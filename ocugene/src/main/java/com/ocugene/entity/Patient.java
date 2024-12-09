@@ -11,7 +11,7 @@ import lombok.Setter;
 import java.util.Date;
 
 @Entity
-@Table(name = "patient")
+@Table(name = "patient", schema = "public")
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Setter

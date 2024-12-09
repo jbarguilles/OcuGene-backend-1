@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
+import java.util.function.Consumer;
 
 @CrossOrigin
 @RestController
@@ -61,4 +62,15 @@ public class UserController {
         return userService.verifyUserUsingCode(code);
     }
 
+    @PutMapping("/change-password")
+    public ResponseEntity<String> changePassword(@RequestBody User user){
+        Optional<User> tempUser = userService.getUserByUsername(user.getUsername());
+
+        if(tempUser.isPresent()) {
+            tempUser.get().setUserPassword(user.getUserPassword());
+            userService.saveUser(tempUser.get());
+        }
+
+        return ResponseEntity.ok( "success");
+    }
 }

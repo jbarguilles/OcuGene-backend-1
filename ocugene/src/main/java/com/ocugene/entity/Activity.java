@@ -10,7 +10,7 @@ import java.sql.Time;
 import java.util.Date;
 
 @Entity
-@Table(name = "activity")
+@Table(name = "activity", schema = "public")
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Setter
