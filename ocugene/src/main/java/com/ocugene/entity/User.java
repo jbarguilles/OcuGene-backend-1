@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "user", schema = "registrydatabase")
+@Table(name = "user")
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Setter

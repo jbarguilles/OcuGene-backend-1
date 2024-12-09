@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "request", schema = "registrydatabase")
+@Table(name = "request")
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Setter

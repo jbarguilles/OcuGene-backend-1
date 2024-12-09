@@ -14,4 +14,5 @@ public interface UserService {
     User addUser(AddUserRequest addUserRequest);
     Optional<User> getUserByUsername(String username);
     void forgotPassword(String email);
+    int verifyUserUsingCode(String code);
 }
