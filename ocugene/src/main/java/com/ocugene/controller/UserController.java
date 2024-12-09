@@ -46,4 +46,9 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserByUsername(username).get());
     }
 
+    @GetMapping("/forgot-password")
+    public void forgotPassword(@RequestParam String email){
+        userService.forgotPassword(email);
+    }
+
 }
