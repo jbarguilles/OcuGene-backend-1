@@ -55,9 +55,12 @@ public class UserController {
     @PutMapping("/change-password")
     public ResponseEntity<String> changePassword(@RequestBody User user){
         Optional<User> tempUser = userService.getUserByUsername(user.getUsername());
+
         if(tempUser.isPresent()) {
             tempUser.get().setUserPassword(user.getUserPassword());
+            userService.saveUser(tempUser.get());
         }
-        return ResponseEntity.ok("Password changed successfully.");
+
+        return ResponseEntity.ok( "success");
     }
 }
