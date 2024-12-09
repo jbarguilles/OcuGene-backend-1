@@ -13,4 +13,5 @@ public interface UserService {
     List<User> getAllUsers();
     User addUser(AddUserRequest addUserRequest);
     Optional<User> getUserByUsername(String username);
+    void forgotPassword(String email);
 }
