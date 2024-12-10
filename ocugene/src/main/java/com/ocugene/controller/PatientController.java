@@ -62,14 +62,14 @@ public class PatientController {
 
     @GetMapping("/get-left-bcva-stats")
     @ResponseBody
-    public ResponseEntity<BcvaStats> getLeftBcvaStats(){
+    public ResponseEntity<List<BcvaStats>> getLeftBcvaStats(){
 
         return  ResponseEntity.ok(patientService.getLeftBcvaStats());
     }
 
     @GetMapping("/get-right-bcva-stats")
     @ResponseBody
-    public ResponseEntity<BcvaStats> getRightBcvaStats(){
+    public ResponseEntity<List<BcvaStats>> getRightBcvaStats(){
 
         return  ResponseEntity.ok(patientService.getRightBcvaStats());
     }

@@ -71,12 +71,12 @@ public class PatientServiceImpl implements PatientService{
     }
 
     @Override
-    public BcvaStats getLeftBcvaStats() {
+    public List<BcvaStats> getLeftBcvaStats() {
         return patientRepository.getLeftBcvaStats();
     }
 
     @Override
-    public BcvaStats getRightBcvaStats() {
+    public List<BcvaStats> getRightBcvaStats() {
         return patientRepository.getRightBcvaStats();
     }
 
