@@ -21,4 +21,6 @@ public interface PatientService {
     BcvaStats getRightBcvaStats();
     CornealOpacityStats getLeftCornealOpacityStats();
     CornealOpacityStats getRightCornealOpacityStats();
+    RetinalConditionStats getLeftRetinalConditionStats();
+    RetinalConditionStats getRightRetinalConditionStats();
 }
