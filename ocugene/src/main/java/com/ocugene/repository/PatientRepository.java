@@ -1,6 +1,7 @@
 package com.ocugene.repository;
 
 import com.ocugene.entity.Patient;
+import com.ocugene.entity.projection.BcvaStats;
 import com.ocugene.entity.projection.PatientProjection;
 import com.ocugene.entity.projection.RegionCount;
 import com.ocugene.entity.projection.VariantCount;
@@ -40,9 +41,27 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
             "p.right_cornea, p.left_cornea from public.patient p", nativeQuery = true)
     List<PatientProjection> findAllProjectedBy();
 
+    @Query(value = """
+        SELECT\s
+           COALESCE(SUM(CASE WHEN left_bcva = '20/20' THEN 1 ELSE 0 END), 0) AS "count2020",
+           COALESCE(SUM(CASE WHEN left_bcva = '20/40' THEN 1 ELSE 0 END), 0) AS "count2040",
+           COALESCE(SUM(CASE WHEN left_bcva = '20/60' THEN 1 ELSE 0 END), 0) AS "count2060",
+           COALESCE(SUM(CASE WHEN left_bcva = '20/80' THEN 1 ELSE 0 END), 0) AS "count2080",
+           COALESCE(SUM(CASE WHEN left_bcva = '20/100' THEN 1 ELSE 0 END), 0) AS "count20100"
+       FROM public.patient
+    """, nativeQuery = true)
+    BcvaStats getLeftBcvaStats();
 
-
-
+    @Query(value = """
+        SELECT\s
+           COALESCE(SUM(CASE WHEN right_bcva = '20/20' THEN 1 ELSE 0 END), 0) AS "count2020",
+           COALESCE(SUM(CASE WHEN right_bcva = '20/40' THEN 1 ELSE 0 END), 0) AS "count2040",
+           COALESCE(SUM(CASE WHEN right_bcva = '20/60' THEN 1 ELSE 0 END), 0) AS "count2060",
+           COALESCE(SUM(CASE WHEN right_bcva = '20/80' THEN 1 ELSE 0 END), 0) AS "count2080",
+           COALESCE(SUM(CASE WHEN right_bcva = '20/100' THEN 1 ELSE 0 END), 0) AS "count20100"
+       FROM public.patient
+    """, nativeQuery = true)
+    BcvaStats getRightBcvaStats();
 
 
 

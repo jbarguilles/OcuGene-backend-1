@@ -1,12 +1,12 @@
 package com.ocugene.controller;
 
 import com.ocugene.entity.Patient;
+import com.ocugene.entity.projection.BcvaStats;
 import com.ocugene.entity.projection.PatientProjection;
 import com.ocugene.entity.projection.RegionCount;
 import com.ocugene.entity.projection.VariantCount;
 import com.ocugene.entity.requests.AddPatientRequest;
 import com.ocugene.service.PatientService;
-import com.ocugene.service.PatientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -61,5 +61,19 @@ public class PatientController {
     @ResponseBody
     public ResponseEntity<Patient> getByPatientID(@RequestParam String patientCode){
         return ResponseEntity.ok(patientService.getByPatientCode(patientCode));
+    }
+
+    @GetMapping("/get-left-bcva-stats")
+    @ResponseBody
+    public ResponseEntity<BcvaStats> getLeftBcvaStats(){
+
+        return  ResponseEntity.ok(patientService.getLeftBcvaStats());
+    }
+
+    @GetMapping("/get-right-bcva-stats")
+    @ResponseBody
+    public ResponseEntity<BcvaStats> getRightBcvaStats(){
+
+        return  ResponseEntity.ok(patientService.getRightBcvaStats());
     }
 }

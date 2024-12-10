@@ -2,9 +2,7 @@ package com.ocugene.service;
 
 import com.ocugene.entity.Patient;
 import com.ocugene.entity.User;
-import com.ocugene.entity.projection.PatientProjection;
-import com.ocugene.entity.projection.RegionCount;
-import com.ocugene.entity.projection.VariantCount;
+import com.ocugene.entity.projection.*;
 import com.ocugene.entity.requests.AddPatientRequest;
 import com.ocugene.repository.PatientRepository;
 import com.ocugene.repository.UserRepository;
@@ -70,5 +68,15 @@ public class PatientServiceImpl implements PatientService{
     @Override
     public List<PatientProjection> getAllProjectedBy(){
         return patientRepository.findAllProjectedBy();
+    }
+
+    @Override
+    public BcvaStats getLeftBcvaStats() {
+        return patientRepository.getLeftBcvaStats();
+    }
+
+    @Override
+    public BcvaStats getRightBcvaStats() {
+        return patientRepository.getRightBcvaStats();
     }
 }
