@@ -43,7 +43,8 @@ public class RequestServiceImpl implements RequestService {
 
                 User user = new User();
 
-                user.setUsername(actualRequest.getEmail());
+                user.setUsername(actualRequest.getUsername());
+                user.setEmail(actualRequest.getEmail());
                 user.setUserPassword(actualRequest.getPassword());
                 user.setUserType(actualRequest.getUserType());
                 user.setFirstName(actualRequest.getFirstName());
