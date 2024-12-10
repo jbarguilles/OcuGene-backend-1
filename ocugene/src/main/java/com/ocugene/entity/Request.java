@@ -19,6 +19,9 @@ public class Request {
     @Column(name = "request_id")
     Integer requestId;
 
+    @Column(name = "username")
+    String username;
+
     @Column(name = "email")
     String email;
 
