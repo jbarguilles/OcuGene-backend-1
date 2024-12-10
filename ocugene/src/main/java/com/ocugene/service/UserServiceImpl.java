@@ -93,17 +93,21 @@ public class UserServiceImpl implements UserService {
 
     private String generateVerificationCode() {
 
-        //8-digit verification code
+        // 8-digit verification code
         Random random = new Random();
         int randomNumber = random.nextInt(100000000);
         String code = Integer.toString(randomNumber);
 
-        while(code.length() < 8){
-            code = "0" + code;
+        // Use StringBuilder to handle padding
+        StringBuilder paddedCode = new StringBuilder(code);
+
+        while (paddedCode.length() < 8) {
+            paddedCode.insert(0, "0");
         }
 
-        return code;
+        return paddedCode.toString();
     }
+
 
     @Override
     public User verifyUserUsingCode(String code) {

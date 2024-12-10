@@ -27,6 +27,9 @@ public class AddUserRequest {
     @JsonProperty("contactNumber")
     private String contactNumber;
 
+    @JsonProperty("email")
+    private String email;
+
     public User mapToUser(){
         User user = new User();
 
@@ -36,6 +39,7 @@ public class AddUserRequest {
         user.setFirstName(this.firstName);
         user.setLastName(this.lastName);
         user.setContactNumber(this.contactNumber);
+        user.setEmail(this.email);
 
         return user;
     }
