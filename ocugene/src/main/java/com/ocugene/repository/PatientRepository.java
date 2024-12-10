@@ -1,10 +1,7 @@
 package com.ocugene.repository;
 
 import com.ocugene.entity.Patient;
-import com.ocugene.entity.projection.BcvaStats;
-import com.ocugene.entity.projection.PatientProjection;
-import com.ocugene.entity.projection.RegionCount;
-import com.ocugene.entity.projection.VariantCount;
+import com.ocugene.entity.projection.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -63,7 +60,19 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
     """, nativeQuery = true)
     BcvaStats getRightBcvaStats();
 
+    @Query(value = """
+        SELECT\s
+            COALESCE(SUM(CASE WHEN left_cornea = 'Normal' THEN 1 ELSE 0 END), 0) AS normalCount,
+            COALESCE(SUM(CASE WHEN left_cornea = 'Abnormal' THEN 1 ELSE 0 END), 0) AS abnormalCount
+        FROM public.patient
+    """, nativeQuery = true)
+    CornealOpacityStats getLeftCornealOpacityStats();
 
-
-
+    @Query(value = """
+        SELECT\s
+            COALESCE(SUM(CASE WHEN right_cornea = 'Normal' THEN 1 ELSE 0 END), 0) AS normalCount,
+            COALESCE(SUM(CASE WHEN right_cornea = 'Abnormal' THEN 1 ELSE 0 END), 0) AS abnormalCount
+        FROM public.patient
+    """, nativeQuery = true)
+    CornealOpacityStats getRightCornealOpacityStats();
 }

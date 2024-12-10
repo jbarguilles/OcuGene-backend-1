@@ -1,10 +1,7 @@
 package com.ocugene.controller;
 
 import com.ocugene.entity.Patient;
-import com.ocugene.entity.projection.BcvaStats;
-import com.ocugene.entity.projection.PatientProjection;
-import com.ocugene.entity.projection.RegionCount;
-import com.ocugene.entity.projection.VariantCount;
+import com.ocugene.entity.projection.*;
 import com.ocugene.entity.requests.AddPatientRequest;
 import com.ocugene.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,5 +72,19 @@ public class PatientController {
     public ResponseEntity<BcvaStats> getRightBcvaStats(){
 
         return  ResponseEntity.ok(patientService.getRightBcvaStats());
+    }
+
+    @GetMapping("/get-left-corneal-opacity-stats")
+    @ResponseBody
+    public ResponseEntity<CornealOpacityStats> getLeftCornealOpacityStats(){
+
+        return  ResponseEntity.ok(patientService.getLeftCornealOpacityStats());
+    }
+
+    @GetMapping("/get-right-corneal-opacity-stats")
+    @ResponseBody
+    public ResponseEntity<CornealOpacityStats> getRightCornealOpacityStats(){
+
+        return  ResponseEntity.ok(patientService.getRightCornealOpacityStats());
     }
 }
