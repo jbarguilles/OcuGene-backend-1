@@ -79,4 +79,14 @@ public class PatientServiceImpl implements PatientService{
     public BcvaStats getRightBcvaStats() {
         return patientRepository.getRightBcvaStats();
     }
+
+    @Override
+    public CornealOpacityStats getLeftCornealOpacityStats() {
+        return patientRepository.getLeftCornealOpacityStats();
+    }
+
+    @Override
+    public CornealOpacityStats getRightCornealOpacityStats() {
+        return patientRepository.getRightCornealOpacityStats();
+    }
 }
