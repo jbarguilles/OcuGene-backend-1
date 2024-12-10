@@ -87,4 +87,19 @@ public class PatientController {
 
         return  ResponseEntity.ok(patientService.getRightCornealOpacityStats());
     }
+
+    @GetMapping("/get-left-retinal-condition-stats")
+    @ResponseBody
+    public ResponseEntity<RetinalConditionStats> getLeftRetinalConditionStats(){
+
+        return  ResponseEntity.ok(patientService.getLeftRetinalConditionStats());
+    }
+
+    @GetMapping("/get-right-retinal-condition-stats")
+    @ResponseBody
+    public ResponseEntity<RetinalConditionStats> getRightRetinalConditionStats(){
+
+        return  ResponseEntity.ok(patientService.getRightRetinalConditionStats());
+    }
+
 }
