@@ -90,14 +90,14 @@ public class PatientController {
 
     @GetMapping("/get-left-retinal-condition-stats")
     @ResponseBody
-    public ResponseEntity<RetinalConditionStats> getLeftRetinalConditionStats(){
+    public ResponseEntity<List<RetinalConditionStats>> getLeftRetinalConditionStats(){
 
         return  ResponseEntity.ok(patientService.getLeftRetinalConditionStats());
     }
 
     @GetMapping("/get-right-retinal-condition-stats")
     @ResponseBody
-    public ResponseEntity<RetinalConditionStats> getRightRetinalConditionStats(){
+    public ResponseEntity<List<RetinalConditionStats>> getRightRetinalConditionStats(){
 
         return  ResponseEntity.ok(patientService.getRightRetinalConditionStats());
     }

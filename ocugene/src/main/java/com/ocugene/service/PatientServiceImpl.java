@@ -91,12 +91,12 @@ public class PatientServiceImpl implements PatientService{
     }
 
     @Override
-    public RetinalConditionStats getLeftRetinalConditionStats() {
+    public List<RetinalConditionStats> getLeftRetinalConditionStats() {
         return patientRepository.getLeftRetinalConditionStats();
     }
 
     @Override
-    public RetinalConditionStats getRightRetinalConditionStats() {
+    public List<RetinalConditionStats> getRightRetinalConditionStats() {
         return patientRepository.getRightRetinalConditionStats();
     }
 }

@@ -21,6 +21,6 @@ public interface PatientService {
     List<BcvaStats> getRightBcvaStats();
     List<CornealOpacityStats> getLeftCornealOpacityStats();
     List<CornealOpacityStats> getRightCornealOpacityStats();
-    RetinalConditionStats getLeftRetinalConditionStats();
-    RetinalConditionStats getRightRetinalConditionStats();
+    List<RetinalConditionStats> getLeftRetinalConditionStats();
+    List<RetinalConditionStats> getRightRetinalConditionStats();
 }
