@@ -90,18 +90,25 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
     List<CornealOpacityStats> getRightCornealOpacityStatsByDiagnosisAndVariant();
 
     @Query(value = """
-        SELECT\s
-            COALESCE(SUM(CASE WHEN left_retina = 'Normal' THEN 1 ELSE 0 END), 0) AS normalCount,
-            COALESCE(SUM(CASE WHEN left_retina = 'Abnormal' THEN 1 ELSE 0 END), 0) AS abnormalCount
-        FROM public.patient
+    SELECT
+       diagnosis,
+       variant,
+       COALESCE(SUM(CASE WHEN left_retina = 'Normal' THEN 1 ELSE 0 END), 0) AS normalCount,
+       COALESCE(SUM(CASE WHEN left_retina = 'Abnormal' THEN 1 ELSE 0 END), 0) AS abnormalCount
+    FROM public.patient
+    GROUP BY diagnosis, variant
     """, nativeQuery = true)
-    RetinalConditionStats getLeftRetinalConditionStats();
+    List<RetinalConditionStats> getLeftRetinalConditionStats();
 
     @Query(value = """
-        SELECT\s
-            COALESCE(SUM(CASE WHEN right_retina = 'Normal' THEN 1 ELSE 0 END), 0) AS normalCount,
-            COALESCE(SUM(CASE WHEN right_retina = 'Abnormal' THEN 1 ELSE 0 END), 0) AS abnormalCount
-        FROM public.patient
+    SELECT
+       diagnosis,
+       variant,
+       COALESCE(SUM(CASE WHEN right_retina = 'Normal' THEN 1 ELSE 0 END), 0) AS normalCount,
+       COALESCE(SUM(CASE WHEN right_retina = 'Abnormal' THEN 1 ELSE 0 END), 0) AS abnormalCount
+    FROM public.patient
+    GROUP BY diagnosis, variant
     """, nativeQuery = true)
-    RetinalConditionStats getRightRetinalConditionStats();
+    List<RetinalConditionStats> getRightRetinalConditionStats();
+
 }
