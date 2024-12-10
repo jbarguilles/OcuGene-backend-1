@@ -39,26 +39,33 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
     List<PatientProjection> findAllProjectedBy();
 
     @Query(value = """
-        SELECT\s
-           COALESCE(SUM(CASE WHEN left_bcva = '20/20' THEN 1 ELSE 0 END), 0) AS "count2020",
-           COALESCE(SUM(CASE WHEN left_bcva = '20/40' THEN 1 ELSE 0 END), 0) AS "count2040",
-           COALESCE(SUM(CASE WHEN left_bcva = '20/60' THEN 1 ELSE 0 END), 0) AS "count2060",
-           COALESCE(SUM(CASE WHEN left_bcva = '20/80' THEN 1 ELSE 0 END), 0) AS "count2080",
-           COALESCE(SUM(CASE WHEN left_bcva = '20/100' THEN 1 ELSE 0 END), 0) AS "count20100"
-       FROM public.patient
+    SELECT
+       diagnosis,
+       variant,
+       COALESCE(SUM(CASE WHEN left_bcva = '20/20' THEN 1 ELSE 0 END), 0) AS "count2020",
+       COALESCE(SUM(CASE WHEN left_bcva = '20/40' THEN 1 ELSE 0 END), 0) AS "count2040",
+       COALESCE(SUM(CASE WHEN left_bcva = '20/60' THEN 1 ELSE 0 END), 0) AS "count2060",
+       COALESCE(SUM(CASE WHEN left_bcva = '20/80' THEN 1 ELSE 0 END), 0) AS "count2080",
+       COALESCE(SUM(CASE WHEN left_bcva = '20/100' THEN 1 ELSE 0 END), 0) AS "count20100"
+    FROM public.patient
+    GROUP BY diagnosis, variant
     """, nativeQuery = true)
-    BcvaStats getLeftBcvaStats();
+    List<BcvaStats> getLeftBcvaStats();
 
     @Query(value = """
-        SELECT\s
-           COALESCE(SUM(CASE WHEN right_bcva = '20/20' THEN 1 ELSE 0 END), 0) AS "count2020",
-           COALESCE(SUM(CASE WHEN right_bcva = '20/40' THEN 1 ELSE 0 END), 0) AS "count2040",
-           COALESCE(SUM(CASE WHEN right_bcva = '20/60' THEN 1 ELSE 0 END), 0) AS "count2060",
-           COALESCE(SUM(CASE WHEN right_bcva = '20/80' THEN 1 ELSE 0 END), 0) AS "count2080",
-           COALESCE(SUM(CASE WHEN right_bcva = '20/100' THEN 1 ELSE 0 END), 0) AS "count20100"
-       FROM public.patient
+    SELECT
+       diagnosis,
+       variant,
+       COALESCE(SUM(CASE WHEN right_bcva = '20/20' THEN 1 ELSE 0 END), 0) AS "count2020",
+       COALESCE(SUM(CASE WHEN right_bcva = '20/40' THEN 1 ELSE 0 END), 0) AS "count2040",
+       COALESCE(SUM(CASE WHEN right_bcva = '20/60' THEN 1 ELSE 0 END), 0) AS "count2060",
+       COALESCE(SUM(CASE WHEN right_bcva = '20/80' THEN 1 ELSE 0 END), 0) AS "count2080",
+       COALESCE(SUM(CASE WHEN right_bcva = '20/100' THEN 1 ELSE 0 END), 0) AS "count20100"
+    FROM public.patient
+    GROUP BY diagnosis, variant
     """, nativeQuery = true)
-    BcvaStats getRightBcvaStats();
+    List<BcvaStats> getRightBcvaStats();
+
 
     @Query(value = """
         SELECT\s
