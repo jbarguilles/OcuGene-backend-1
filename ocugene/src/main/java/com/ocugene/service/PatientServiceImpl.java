@@ -81,13 +81,13 @@ public class PatientServiceImpl implements PatientService{
     }
 
     @Override
-    public CornealOpacityStats getLeftCornealOpacityStats() {
-        return patientRepository.getLeftCornealOpacityStats();
+    public List<CornealOpacityStats> getLeftCornealOpacityStats() {
+        return patientRepository.getLeftCornealOpacityStatsByDiagnosisAndVariant();
     }
 
     @Override
-    public CornealOpacityStats getRightCornealOpacityStats() {
-        return patientRepository.getRightCornealOpacityStats();
+    public List<CornealOpacityStats> getRightCornealOpacityStats() {
+        return patientRepository.getRightCornealOpacityStatsByDiagnosisAndVariant();
     }
 
     @Override

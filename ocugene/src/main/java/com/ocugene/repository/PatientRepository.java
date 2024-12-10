@@ -68,20 +68,26 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
 
 
     @Query(value = """
-        SELECT\s
-            COALESCE(SUM(CASE WHEN left_cornea = 'Normal' THEN 1 ELSE 0 END), 0) AS normalCount,
-            COALESCE(SUM(CASE WHEN left_cornea = 'Abnormal' THEN 1 ELSE 0 END), 0) AS abnormalCount
-        FROM public.patient
+    SELECT
+       diagnosis,
+       variant,
+       COALESCE(SUM(CASE WHEN left_cornea = 'Normal' THEN 1 ELSE 0 END), 0) AS normalCount,
+       COALESCE(SUM(CASE WHEN left_cornea = 'Abnormal' THEN 1 ELSE 0 END), 0) AS abnormalCount
+    FROM public.patient
+    GROUP BY diagnosis, variant
     """, nativeQuery = true)
-    CornealOpacityStats getLeftCornealOpacityStats();
+    List<CornealOpacityStats> getLeftCornealOpacityStatsByDiagnosisAndVariant();
 
     @Query(value = """
-        SELECT\s
-            COALESCE(SUM(CASE WHEN right_cornea = 'Normal' THEN 1 ELSE 0 END), 0) AS normalCount,
-            COALESCE(SUM(CASE WHEN right_cornea = 'Abnormal' THEN 1 ELSE 0 END), 0) AS abnormalCount
-        FROM public.patient
+    SELECT
+       diagnosis,
+       variant,
+       COALESCE(SUM(CASE WHEN right_cornea = 'Normal' THEN 1 ELSE 0 END), 0) AS normalCount,
+       COALESCE(SUM(CASE WHEN right_cornea = 'Abnormal' THEN 1 ELSE 0 END), 0) AS abnormalCount
+    FROM public.patient
+    GROUP BY diagnosis, variant
     """, nativeQuery = true)
-    CornealOpacityStats getRightCornealOpacityStats();
+    List<CornealOpacityStats> getRightCornealOpacityStatsByDiagnosisAndVariant();
 
     @Query(value = """
         SELECT\s
