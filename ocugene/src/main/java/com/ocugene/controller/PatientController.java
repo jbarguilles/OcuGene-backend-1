@@ -76,14 +76,14 @@ public class PatientController {
 
     @GetMapping("/get-left-corneal-opacity-stats")
     @ResponseBody
-    public ResponseEntity<CornealOpacityStats> getLeftCornealOpacityStats(){
+    public ResponseEntity<List<CornealOpacityStats>> getLeftCornealOpacityStats(){
 
         return  ResponseEntity.ok(patientService.getLeftCornealOpacityStats());
     }
 
     @GetMapping("/get-right-corneal-opacity-stats")
     @ResponseBody
-    public ResponseEntity<CornealOpacityStats> getRightCornealOpacityStats(){
+    public ResponseEntity<List<CornealOpacityStats>> getRightCornealOpacityStats(){
 
         return  ResponseEntity.ok(patientService.getRightCornealOpacityStats());
     }
