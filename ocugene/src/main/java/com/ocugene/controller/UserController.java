@@ -48,8 +48,18 @@ public class UserController {
     }
 
     @GetMapping("/forgot-password")
-    public void forgotPassword(@RequestParam String email){
+    public ResponseEntity<String> forgotPassword(@RequestParam String email){
         userService.forgotPassword(email);
+
+        // Using String.format for string interpolation
+        return ResponseEntity.ok(String.format("An email has been sent to %s", email));
+    }
+
+    @PostMapping("/verify-user-using-code")
+    public ResponseEntity<User> verifyuserViaCode(@RequestParam String code){
+
+        //this will return the corresponding user id of the user that requested for forgotten password reset
+        return ResponseEntity.ok(userService.verifyUserUsingCode(code));
     }
 
     @PutMapping("/change-password")
@@ -63,4 +73,7 @@ public class UserController {
 
         return ResponseEntity.ok( "success");
     }
+
+
+
 }

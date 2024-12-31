@@ -9,6 +9,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AddRequestRequest {
+
+    @JsonProperty("username")
+    String username;
+
     @JsonProperty("email")
     String email;
 
@@ -42,6 +46,7 @@ public class AddRequestRequest {
     public Request mapToRequest() {
         Request request = new Request();
 
+        request.setUsername(this.username);
         request.setEmail(this.email);
         request.setPassword(this.password);
 

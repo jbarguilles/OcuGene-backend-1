@@ -2,9 +2,7 @@ package com.ocugene.service;
 
 import com.ocugene.entity.Patient;
 import com.ocugene.entity.User;
-import com.ocugene.entity.projection.PatientProjection;
-import com.ocugene.entity.projection.RegionCount;
-import com.ocugene.entity.projection.VariantCount;
+import com.ocugene.entity.projection.*;
 import com.ocugene.entity.requests.AddPatientRequest;
 import com.ocugene.repository.PatientRepository;
 import com.ocugene.repository.UserRepository;
@@ -70,5 +68,35 @@ public class PatientServiceImpl implements PatientService{
     @Override
     public List<PatientProjection> getAllProjectedBy(){
         return patientRepository.findAllProjectedBy();
+    }
+
+    @Override
+    public List<BcvaStats> getLeftBcvaStats() {
+        return patientRepository.getLeftBcvaStats();
+    }
+
+    @Override
+    public List<BcvaStats> getRightBcvaStats() {
+        return patientRepository.getRightBcvaStats();
+    }
+
+    @Override
+    public List<CornealOpacityStats> getLeftCornealOpacityStats() {
+        return patientRepository.getLeftCornealOpacityStatsByDiagnosisAndVariant();
+    }
+
+    @Override
+    public List<CornealOpacityStats> getRightCornealOpacityStats() {
+        return patientRepository.getRightCornealOpacityStatsByDiagnosisAndVariant();
+    }
+
+    @Override
+    public List<RetinalConditionStats> getLeftRetinalConditionStats() {
+        return patientRepository.getLeftRetinalConditionStats();
+    }
+
+    @Override
+    public List<RetinalConditionStats> getRightRetinalConditionStats() {
+        return patientRepository.getRightRetinalConditionStats();
     }
 }

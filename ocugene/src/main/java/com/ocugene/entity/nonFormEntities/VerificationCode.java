@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "verification_code")
@@ -22,10 +22,13 @@ public class VerificationCode {
     private String code;
 
     @Column(name = "created_timestamp", nullable = false)
-    private Date createdTimestamp;
+    private LocalDateTime createdTimestamp;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User ocugeneUser;
+
+    @Column(name = "is_valid")
+    private Boolean isValid;
 
 }

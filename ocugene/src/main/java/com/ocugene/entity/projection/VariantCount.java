@@ -2,7 +2,7 @@ package com.ocugene.entity.projection;
 
 public interface VariantCount {
 
-    String getName  ();
+    String getName();
     String getVariant();
     long getCount();
     String getDuration();

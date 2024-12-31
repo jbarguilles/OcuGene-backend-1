@@ -1,9 +1,7 @@
 package com.ocugene.repository;
 
 import com.ocugene.entity.Patient;
-import com.ocugene.entity.projection.PatientProjection;
-import com.ocugene.entity.projection.RegionCount;
-import com.ocugene.entity.projection.VariantCount;
+import com.ocugene.entity.projection.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -40,11 +38,77 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
             "p.right_cornea, p.left_cornea from public.patient p", nativeQuery = true)
     List<PatientProjection> findAllProjectedBy();
 
+    @Query(value = """
+    SELECT
+       diagnosis,
+       variant,
+       COALESCE(SUM(CASE WHEN left_bcva = '20/20' THEN 1 ELSE 0 END), 0) AS "count2020",
+       COALESCE(SUM(CASE WHEN left_bcva = '20/40' THEN 1 ELSE 0 END), 0) AS "count2040",
+       COALESCE(SUM(CASE WHEN left_bcva = '20/60' THEN 1 ELSE 0 END), 0) AS "count2060",
+       COALESCE(SUM(CASE WHEN left_bcva = '20/80' THEN 1 ELSE 0 END), 0) AS "count2080",
+       COALESCE(SUM(CASE WHEN left_bcva = '20/100' THEN 1 ELSE 0 END), 0) AS "count20100"
+    FROM public.patient
+    GROUP BY diagnosis, variant
+    """, nativeQuery = true)
+    List<BcvaStats> getLeftBcvaStats();
+
+    @Query(value = """
+    SELECT
+       diagnosis,
+       variant,
+       COALESCE(SUM(CASE WHEN right_bcva = '20/20' THEN 1 ELSE 0 END), 0) AS "count2020",
+       COALESCE(SUM(CASE WHEN right_bcva = '20/40' THEN 1 ELSE 0 END), 0) AS "count2040",
+       COALESCE(SUM(CASE WHEN right_bcva = '20/60' THEN 1 ELSE 0 END), 0) AS "count2060",
+       COALESCE(SUM(CASE WHEN right_bcva = '20/80' THEN 1 ELSE 0 END), 0) AS "count2080",
+       COALESCE(SUM(CASE WHEN right_bcva = '20/100' THEN 1 ELSE 0 END), 0) AS "count20100"
+    FROM public.patient
+    GROUP BY diagnosis, variant
+    """, nativeQuery = true)
+    List<BcvaStats> getRightBcvaStats();
 
 
+    @Query(value = """
+    SELECT
+       diagnosis,
+       variant,
+       COALESCE(SUM(CASE WHEN left_cornea = 'Normal' THEN 1 ELSE 0 END), 0) AS normalCount,
+       COALESCE(SUM(CASE WHEN left_cornea = 'Abnormal' THEN 1 ELSE 0 END), 0) AS abnormalCount
+    FROM public.patient
+    GROUP BY diagnosis, variant
+    """, nativeQuery = true)
+    List<CornealOpacityStats> getLeftCornealOpacityStatsByDiagnosisAndVariant();
 
+    @Query(value = """
+    SELECT
+       diagnosis,
+       variant,
+       COALESCE(SUM(CASE WHEN right_cornea = 'Normal' THEN 1 ELSE 0 END), 0) AS normalCount,
+       COALESCE(SUM(CASE WHEN right_cornea = 'Abnormal' THEN 1 ELSE 0 END), 0) AS abnormalCount
+    FROM public.patient
+    GROUP BY diagnosis, variant
+    """, nativeQuery = true)
+    List<CornealOpacityStats> getRightCornealOpacityStatsByDiagnosisAndVariant();
 
+    @Query(value = """
+    SELECT
+       diagnosis,
+       variant,
+       COALESCE(SUM(CASE WHEN left_retina = 'Normal' THEN 1 ELSE 0 END), 0) AS normalCount,
+       COALESCE(SUM(CASE WHEN left_retina = 'Abnormal' THEN 1 ELSE 0 END), 0) AS abnormalCount
+    FROM public.patient
+    GROUP BY diagnosis, variant
+    """, nativeQuery = true)
+    List<RetinalConditionStats> getLeftRetinalConditionStats();
 
-
+    @Query(value = """
+    SELECT
+       diagnosis,
+       variant,
+       COALESCE(SUM(CASE WHEN right_retina = 'Normal' THEN 1 ELSE 0 END), 0) AS normalCount,
+       COALESCE(SUM(CASE WHEN right_retina = 'Abnormal' THEN 1 ELSE 0 END), 0) AS abnormalCount
+    FROM public.patient
+    GROUP BY diagnosis, variant
+    """, nativeQuery = true)
+    List<RetinalConditionStats> getRightRetinalConditionStats();
 
 }

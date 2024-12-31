@@ -1,12 +1,9 @@
 package com.ocugene.controller;
 
 import com.ocugene.entity.Patient;
-import com.ocugene.entity.projection.PatientProjection;
-import com.ocugene.entity.projection.RegionCount;
-import com.ocugene.entity.projection.VariantCount;
+import com.ocugene.entity.projection.*;
 import com.ocugene.entity.requests.AddPatientRequest;
 import com.ocugene.service.PatientService;
-import com.ocugene.service.PatientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -62,4 +59,47 @@ public class PatientController {
     public ResponseEntity<Patient> getByPatientID(@RequestParam String patientCode){
         return ResponseEntity.ok(patientService.getByPatientCode(patientCode));
     }
+
+    @GetMapping("/get-left-bcva-stats")
+    @ResponseBody
+    public ResponseEntity<List<BcvaStats>> getLeftBcvaStats(){
+
+        return  ResponseEntity.ok(patientService.getLeftBcvaStats());
+    }
+
+    @GetMapping("/get-right-bcva-stats")
+    @ResponseBody
+    public ResponseEntity<List<BcvaStats>> getRightBcvaStats(){
+
+        return  ResponseEntity.ok(patientService.getRightBcvaStats());
+    }
+
+    @GetMapping("/get-left-corneal-opacity-stats")
+    @ResponseBody
+    public ResponseEntity<List<CornealOpacityStats>> getLeftCornealOpacityStats(){
+
+        return  ResponseEntity.ok(patientService.getLeftCornealOpacityStats());
+    }
+
+    @GetMapping("/get-right-corneal-opacity-stats")
+    @ResponseBody
+    public ResponseEntity<List<CornealOpacityStats>> getRightCornealOpacityStats(){
+
+        return  ResponseEntity.ok(patientService.getRightCornealOpacityStats());
+    }
+
+    @GetMapping("/get-left-retinal-condition-stats")
+    @ResponseBody
+    public ResponseEntity<List<RetinalConditionStats>> getLeftRetinalConditionStats(){
+
+        return  ResponseEntity.ok(patientService.getLeftRetinalConditionStats());
+    }
+
+    @GetMapping("/get-right-retinal-condition-stats")
+    @ResponseBody
+    public ResponseEntity<List<RetinalConditionStats>> getRightRetinalConditionStats(){
+
+        return  ResponseEntity.ok(patientService.getRightRetinalConditionStats());
+    }
+
 }
