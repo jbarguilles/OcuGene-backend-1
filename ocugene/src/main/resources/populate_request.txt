@@ -1,9 +1,10 @@
-INSERT INTO registrydatabase.requests (email, password, user_type, supp_docu, institution, message) VALUES
-('john.doe@example.com', 'password123', 'clinician', 'http://clinic-docs.com', 'City Hospital', 'Requesting access to patient records'),
-('jane.smith@example.com', 'securepass', 'researcher', 'http://research-links.com', 'Health Research Center', 'Interested in clinical trial data'),
-('michael.brown@example.com', 'mypassword', 'clinician', 'http://docs-clinician.com', 'Community Clinic', 'Need access to treatment guidelines'),
-('lisa.wong@example.com', 'password2023', 'researcher', 'http://research-institute.com', 'Institute of Health Studies', 'Requesting access to dataset X'),
-('james.lee@example.com', 'password456', 'clinician', 'http://med-support.com', 'General Hospital', 'Need access for new treatment methods'),
+INSERT INTO public.request (email, password,first_name,last_name,contact_number, user_type, supp_docu, institution, message) VALUES
+('john.doe@example.com', 'password123','john','doe','09765643213', 'clinician', 'http://clinic-docs.com', 'City Hospital', 'Requesting access to patient records'),
+('jane.smith@example.com', 'securepass','jane','smith','09768793213',  'researcher', 'http://research-links.com', 'Health Research Center', 'Interested in clinical trial data'),
+('michael.brown@example.com', 'mypassword','michael','brown','09765656733',  'clinician', 'http://docs-clinician.com', 'Community Clinic', 'Need access to treatment guidelines'),
+('lisa.wong@example.com', 'password2023','lisa','wong','09777765213',  'researcher', 'http://research-institute.com', 'Institute of Health Studies', 'Requesting access to dataset X'),
+('james.lee@example.com', 'password456','james','lee','09765647765',  'clinician', 'http://med-support.com', 'General Hospital', 'Need access for new treatment methods');
+
 ('anna.tan@example.com', 'secure2023', 'researcher', 'http://research.org', 'University Research Lab', 'Requesting access to survey data'),
 ('david.kim@example.com', 'pass123', 'clinician', 'http://clinic-link.com', 'Metro Clinic', 'Access for patient management tools'),
 ('susan.cho@example.com', 'safe2023', 'researcher', 'http://data-links.com', 'Research Institute', 'Looking for access to demographic data'),
